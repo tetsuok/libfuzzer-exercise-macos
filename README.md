@@ -28,7 +28,7 @@ linking with `libFuzzer.a`.
 
 ```
 $ ./clang-driver -std=c++11 -g -fno-omit-frame-pointer -fsanitize=address -fsanitize-coverage=trace-pc-guard //path/to/your_fuzzer.cc libFuzzer.a -o your_fuzzer
-$ ./your_fuzzer
+$ ./your_fuzzer -max_total_time=300 # the fuzzer will run indefinitely if without bugs
 ```
 
 See test/test_fuzzer.cc as an example.
