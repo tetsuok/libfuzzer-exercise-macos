@@ -9,13 +9,15 @@ static bool Fuzz(const uint8_t *data, size_t size) {
   auto tok = CFStringTokenizerCreate(nullptr,
                                      cfstr, CFRangeMake(0, CFStringGetLength(cfstr)), kCFStringTokenizerUnitWord, loc);
   CFRelease(loc);
-  if (!tok)
+  if (!tok) {
+    CFRelease(cfstr);
     return false;
+  }
 
   while (CFStringTokenizerAdvanceToNextToken(tok)) {
     auto r = CFStringTokenizerGetCurrentTokenRange(tok);
   }
-
+  CFRelease(tok);
   CFRelease(cfstr);
   return true;
 }
