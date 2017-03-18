@@ -27,3 +27,12 @@
 *.exe
 *.out
 *.app
+third_party
+TMP_CLANG
+local
+Fuzzer
+
+*.dSYM
+.DS_Store
+crash-*
+test_fuzzer
